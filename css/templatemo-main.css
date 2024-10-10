@@ -323,7 +323,21 @@ nav a:hover::before {
 .first-content {
 	padding: 100px;
 	text-align: left;
-	padding-top: 13%;
+	padding-top: 9%;
+}
+
+.padtop {
+	padding-top: 50px;
+}
+
+.last-content {
+	padding: 20px;
+	text-align: left;
+	padding-top: 9%;
+}
+
+.first-text {
+	padding-top: 3%;
 }
 
 .first-content .author-image img {
@@ -352,6 +366,16 @@ nav a:hover::before {
 	color: #fff;
 	font-size: 13px;
 	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: 2px;
+	line-height: 26px;
+	margin-bottom: 20px;
+}
+
+.first-content a {
+	color: #2d69bc;
+	font-size: 13px;
+	text-transform: lowercase;
 	font-weight: 300;
 	letter-spacing: 2px;
 	line-height: 26px;
