@@ -68,3 +68,23 @@ h1 {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+
+h3 {
+    color: #fff;
+}
+
+ul {
+    font-size: 13px;
+    padding-left: 20px;
+    color: #fff;
+}
+
+li {
+    margin-bottom: 10px;
+}
+ .justify-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+ }
