@@ -1,596 +1,972 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wan Adam | Full-Stack Web Developer</title>
+    <meta
+      name="description"
+      content="Professional portfolio of Wan Adam, Full-Stack Web Developer specializing in Laravel, Vue.js, and modern web technologies."
+    />
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Adam</title>
-    <!-- 
-Moonlight Template 
-http://www.templatemo.com/tm-512-moonlight
--->
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3B82F6",
+              secondary: "#10B981",
+              dark: "#1F2937",
+              light: "#F9FAFB",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            animation: {
+              "fade-in": "fadeIn 0.5s ease-in-out",
+              "slide-up": "slideUp 0.5s ease-out",
+              float: "float 6s ease-in-out infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(20px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/fontAwesome.css">
-    <link rel="stylesheet" href="css/light-box.css">
-    <link rel="stylesheet" href="css/templatemo-main.css">
+  <body class="font-sans bg-light text-dark">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <a
+            href="#"
+            class="text-2xl font-bold text-primary transition hover:text-primary/80"
+            >WAN<span class="text-secondary">ADAM</span></a
+          >
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+          <div class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-home"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Home</span
+              >
+            </a>
+            <a href="#about" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-user"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >About</span
+              >
+            </a>
+            <a href="#experience" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-pencil"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Experience</span
+              >
+            </a>
+            <a href="#work" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-code"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Work</span
+              >
+            </a>
+            <a href="#contact" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-envelope"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Contact</span
+              >
+            </a>
+          </div>
 
-    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-</head>
-
-<body>
-
-    <div class="sequence">
-
-        <div class="seq-preloader">
-            <svg width="39" height="16" viewBox="0 0 39 16" xmlns="http://www.w3.org/2000/svg"
-                class="seq-preload-indicator">
-                <g fill="#F96D38">
-                    <path class="seq-preload-circle seq-preload-circle-1"
-                        d="M3.999 12.012c2.209 0 3.999-1.791 3.999-3.999s-1.79-3.999-3.999-3.999-3.999 1.791-3.999 3.999 1.79 3.999 3.999 3.999z" />
-                    <path class="seq-preload-circle seq-preload-circle-2"
-                        d="M15.996 13.468c3.018 0 5.465-2.447 5.465-5.466 0-3.018-2.447-5.465-5.465-5.465-3.019 0-5.466 2.447-5.466 5.465 0 3.019 2.447 5.466 5.466 5.466z" />
-                    <path class="seq-preload-circle seq-preload-circle-3"
-                        d="M31.322 15.334c4.049 0 7.332-3.282 7.332-7.332 0-4.049-3.282-7.332-7.332-7.332s-7.332 3.283-7.332 7.332c0 4.05 3.283 7.332 7.332 7.332z" />
-                </g>
-            </svg>
+          <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+            <i class="fas fa-bars text-2xl text-dark"></i>
+          </button>
         </div>
+      </div>
 
-    </div>
-
-
-    <nav>
-        <!-- <div class="logo">
-              <img src="img/logo.png" alt="">
-          </div> -->
-        <!-- <div class="mini-logo">
-              <img src="img/mini_logo.png" alt="">
-          </div> -->
-        <ul>
-            <a href="#1"><i class="fa fa-home"></i> <em>Home</em></a>
-            <a href="#2"><i class="fa fa-user"></i> <em>About</em></a>
-            <a href="#3"><i class="fa fa-pencil"></i> <em>Experience</em></a>
-            <a href="#4"><i class="fa fa-image"></i> <em>Work</em></a>
-            <a href="#5"><i class="fa fa-envelope"></i> <em>Contact</em></a>
-        </ul>
+      <!-- Mobile Menu -->
+      <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="#home"
+            class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-gray-100 transition"
+            ><i class="fas fa-home mr-2"></i>Home</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-gray-100 transition"
+            ><i class="fas fa-user mr-2"></i>About</a
+          >
+          <a
+            href="#experience"
+            class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-gray-100 transition"
+            ><i class="fas fa-pencil mr-2"></i>Experience</a
+          >
+          <a
+            href="#work"
+            class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-gray-100 transition"
+            ><i class="fas fa-code mr-2"></i>Work</a
+          >
+          <a
+            href="#contact"
+            class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-gray-100 transition"
+            ><i class="fas fa-envelope mr-2"></i>Contact</a
+          >
+        </div>
+      </div>
     </nav>
 
-    <div class="slides">
-        <!-- Home --> 
-        <div class="slide" id="1">
-            <div class="content first-content">
-                <div class="container-fluid">
-                    <div class="col-md-3">
-                        <div class="author-image"><img src="img/personal.jpg" alt=""></div>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="first-text">
-                            <h2>WAN ADAM</h2>
-                            <p>Hi, I'm <em>Adam,</em> a passionate web application developer specializing in building
-                                robust, scalable, and user-friendly web applications. With a strong foundation in modern
-                                web technologies, I aim to deliver high-quality solutions that meet the needs of my
-                                clients and users.</p>
-                            <div class="main-btn"><a href="#2">Read More</a></div>
-                            <div class="fb-btn"><a href="https://www.linkedin.com/in/wan-adam-66a37b170/"
-                                    target="_blank">My LinkedIn Page</a></div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-white to-secondary/10 pt-20"
+    >
+      <div class="container mx-auto px-6 py-16 md:py-24">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
+            <div class="relative inline-block">
+              <div
+                class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-75 animate-pulse"
+              ></div>
+              <img
+                src="img/personal.jpg"
+                alt="Wan Adam"
+                class="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-white shadow-xl z-10"
+              />
             </div>
-        </div>
-        <!-- About --> 
-        <div class="slide" id="2">
-            <div class="content second-content">
-                <div class="container-fluid">
-                    <div class="col-md-6">
-                        <div class="left-content">
-                            <h2>About Me</h2>
-                            <p class="justify-center">I'm a dedicated web application developer with 2 years of experience in developing
-                                full-stack web applications. My expertise spans across front-end and back-end
-                                development, and I have a deep understanding of creating responsive, secure, and
-                                efficient applications.</p>
-                            <!-- <p>Throughout my career, I’ve worked on projects ranging from small business websites to
-                                large-scale applications. I am proficient in technologies like HTML, CSS (Tailwind), JavaScript
-                                (Vue), PHP (Laravel), and database (MySQL).</p> -->
-                            <p class="justify-center">As a recent Computer Science graduate specializing in Web Technology, I've built strong full-stack development skills through academic projects and practical training. During my internship, I gained professional experience with Git version control while collaborating on real-world web applications. My technical toolkit includes modern technologies like HTML5, CSS3 (Tailwind), JavaScript (Vue.js), PHP (Laravel), and MySQL. I applied these skills in projects, where I implemented Git for version control and team collaboration. This combination of academic foundation and hands-on internship experience has equipped me with both technical proficiency and understanding of professional development workflows.</p>
-                            <p class="justify-center">I am constantly seeking opportunities to learn new technologies and improve my skills,
-                                ensuring that the solutions I provide remain at the cutting edge of the industry.</p>
-                            <!-- <p>Education : Bachelor Of Computer Science (Web Technology) With Honours from Universiti
-                                Tun Hussein Onn Malaysia</p> -->
-                            <h3>Education</h3>
-                            <p>
-                                <ul>
-                                    <li>
-                                        <strong>Bachelor of Computer Science (Web Technology) with Honours</strong><br>
-                                        Universiti Tun Hussein Onn Malaysia (UTHM)<br>
-                                        2021 - 2025<br>
-                                        • CGPA: 3.23/4.00<br>
-                                        • Specialization: Web development<br>
-                                        • Final Year Project: "Training Record Management System"
-                                    </li>
-                                    <li>
-                                        <strong>Diploma in Engineering Electronic Computer</strong><br>
-                                        Politeknik Sultan Mizan Zainal Abidin<br>
-                                        2018 - 2021<br>
-                                        • CGPA: 3.45/4.00<br>
-                                        • Specialization: Computer Engineering<br>
-                                        • Final Year Project: "Smart Door Lock System Using Arduino"
-                                    </li>
-                                </ul>
-                            </p>
-
-                            <!-- <div class="main-btn"><a href="#3">Read More</a></div> -->
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="right-image">
-                            <img src="img/about_image.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="md:w-1/2 animate-slide-up">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+              <span class="text-primary">WAN</span>
+              <span class="text-secondary">ADAM</span>
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-700">
+              Full-Stack Web Developer
+            </h2>
+            <p class="text-lg mb-8 text-gray-600 leading-relaxed">
+              Hi, I'm <span class="font-semibold text-primary">Adam</span>, a
+              passionate web application developer specializing in building
+              robust, scalable, and user-friendly web applications. With a
+              strong foundation in modern web technologies, I aim to deliver
+              high-quality solutions that meet the needs of my clients and
+              users.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#about"
+                class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              >
+                Learn More
+              </a>
+              <a
+                href="https://www.linkedin.com/in/wan-adam-66a37b170/"
+                target="_blank"
+                class="px-8 py-3 bg-white text-primary border-2 border-primary rounded-full font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center"
+              >
+                <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+              </a>
             </div>
+          </div>
         </div>
-        <!-- Experience --> 
-        <div class="slide" id="3">
-            <div class="content third-content">
-                <div class="container-fluid">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="second-section">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="left-image">
-                                                <img src="img/inertia.webp" alt="second service">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="right-content">
-                                                <h2>Laravel Inertia Vue JS</h2>
-                                                <p>Laravel Inertia is a powerful tool that enables developers to create
-                                                    contemporary single-page applications (SPAs) with Laravel as the
-                                                    backend and Vue.js as the frontend framework, while avoiding the
-                                                    complexities of standard APIs. It serves as a bridge between the
-                                                    two, allowing for smooth communication and rendering of Vue
-                                                    components straight from Laravel routes. This means you can use
-                                                    Laravel's powerful features such as routing, middleware, and
-                                                    validation while still taking use of Vue.js' reactive and dynamic
-                                                    capabilities. Inertia allows developers to construct quick,
-                                                    interactive online applications that feel like native apps while
-                                                    keeping the development process simple and straightforward.</p>
-                                                <!-- <div class="main-btn"><a href="#4">Continue Reading</a></div> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="first-section">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="left-content">
-                                                <h2>Laravel Livewire</h2>
-                                                <p>Laravel Livewire is a dynamic framework that allows developers to
-                                                    create contemporary, interactive user interfaces for Laravel
-                                                    applications without using much JavaScript. It enables you to
-                                                    construct reactive components that respond to user activities in
-                                                    real time while still utilising familiar Blade templates. Livewire
-                                                    allows you to effortlessly maintain state, process form submissions,
-                                                    and refresh the UI without the need for sophisticated front-end
-                                                    frameworks. This makes it an excellent alternative for Laravel
-                                                    developers looking to improve their apps' interactivity while
-                                                    keeping the development process simple and quick.</p>
-                                                <!-- <div class="main-btn"><a href="#4">Continue Reading</a></div> -->
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="right-image">
-                                                <img src="img/livewire.avif" alt="first service">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="second-section">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="left-image">
-                                                <img src="img/mzr.jpg" alt="second service">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="right-content">
-                                                <h2>Agile Methodologies</h2>
-                                                <p>Experienced in working within Agile teams, I have contributed to
-                                                    projects following Agile methodologies, including Scrum and Kanban.
-                                                    During my internship at MZR GLOBAL SDN BHD, I collaborated with
-                                                    cross-functional teams, participated in daily stand-ups, sprint
-                                                    planning, and retrospectives, and delivered incremental updates to
-                                                    projects. This approach allowed me to rapidly iterate on features
-                                                    based on user feedback, resulting in high-quality, customer-centric
-                                                    applications.</p>
-                                                <!-- <div class="main-btn"><a href="#4">Continue Reading</a></div> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
+            <span class="relative z-10"
+              >About <span class="text-primary">Me</span></span
+            >
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-secondary/30 -z-0"
+            ></span>
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"
+          ></div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="lg:w-1/2 animate-fade-in">
+            <div class="relative group">
+              <div
+                class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-500"
+              ></div>
+              <img
+                src="img/code-2.jpg"
+                alt="About Wan Adam"
+                class="relative rounded-xl shadow-2xl z-10 w-full h-auto object-cover transform group-hover:-rotate-1 transition duration-300"
+              />
             </div>
-        </div>
-        <!-- Work --> 
-        <div class="slide" id="4">
-            <div class="content fourth-content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="ecommerce.html" target="_blank">
-                                        <div class="hover-effect">
-                                            <div class="hover-content">
-                                                <h2>Sport Shop</h2>
-                                                <p>E-commerce system</p>
-                                            </div>
-                                        </div>
-                                        <div class="image">
-                                            <img src="img/sportshop.png">
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="opih.html" target="_blank">
-                                        <div class="hover-effect">
-                                            <div class="hover-content">
-                                                <h2>Opih</h2>
-                                                <p>Job application system</p>
-                                            </div>
-                                        </div>
-                                        <div class="image">
-                                            <img src="img/opih2.png">
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="training.html" target="_blank">
-                                        <div class="hover-effect">
-                                            <div class="hover-content">
-                                                <h2>Training Manegement System</h2>
-                                                <p>Manage staff training</p>
-                                            </div>
-                                        </div>
-                                        <div class="image">
-                                            <img src="img/trms.png">
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/second_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Number Two</h2>
-                                            <p>Donec eget dictum tellus. Curabitur a interdum diam. Nulla vestibulum porttitor porta.</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/second_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/third_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Number Three</h2>
-                                            <p>Cras varius dolor et augue fringilla, eu commodo sapien iaculis.</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/third_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/fourth_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Number Four</h2>
-                                            <p>Vestibulum augue ex, finibus sit amet nisi id, maximus ultrices ipsum.</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/fourth_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/fifth_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Fifth Item</h2>
-                                            <p>Donec commodo, ex nec rutrum venenatis, nisi nisl malesuada magna.</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/fifth_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/sixth_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Sixth Item</h2>
-                                            <p>Maecenas dapibus neque sed nisl consectetur, id semper nisi egestas.</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/sixth_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/seventh_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Number Seven</h2>
-                                            <p>Etiam aliquet, est id varius fringilla, eros libero pellentesque lectus.</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/seventh_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/eight_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Number Eight</h2>
-                                            <p>Vestibulum augue ex, finibus sit amet nisi id, maximus ultrices ipsum.</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/eight_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/ninth_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Number Nine</h2>
-                                            <p>Orci varius natoque penatibus et magnis dis parturient montes.</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/ninth_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/fifth_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Number Ten</h2>
-                                            <p>Vestibulum augue ex, finibus sit amet nisi id, maximus ultrices ipsum.</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/fifth_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/first_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Eleventh Item</h2>
-                                            <p>Cras varius dolor et augue fringilla, eu commodo sapien iaculis.</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/first_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/second_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Twelvth Item</h2>
-                                            <p>Etiam tincidunt magna ex, sit amet lobortis felis bibendum id.</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/second_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                    </div>
+          </div>
+
+          <div class="lg:w-1/2 animate-slide-up">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800">
+              Professional Web Developer
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              I'm a dedicated web application developer with 2 years of
+              experience in developing full-stack web applications. My expertise
+              spans across front-end and back-end development, and I have a deep
+              understanding of creating responsive, secure, and efficient
+              applications.
+            </p>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              As a recent Computer Science graduate specializing in Web
+              Technology, I've built strong full-stack development skills
+              through academic projects and practical training. During my
+              internship, I gained professional experience with Git version
+              control while collaborating on real-world web applications.
+            </p>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              I am constantly seeking opportunities to learn new technologies
+              and improve my skills, ensuring that the solutions I provide
+              remain at the cutting edge of the industry.
+            </p>
+
+            <div class="mb-8">
+              <h3
+                class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2"
+              >
+                Education
+              </h3>
+              <div class="space-y-6">
+                <div
+                  class="bg-gray-50 p-6 rounded-lg border-l-4 border-primary shadow-sm hover:shadow-md transition duration-300"
+                >
+                  <h4 class="font-bold text-lg text-gray-800">
+                    Bachelor of Computer Science (Web Technology) with Honours
+                  </h4>
+                  <p class="text-gray-600">
+                    Universiti Tun Hussein Onn Malaysia (UTHM)
+                  </p>
+                  <p class="text-gray-500 text-sm">2021 - 2025</p>
+                  <ul class="mt-2 space-y-1 text-gray-600 text-sm">
+                    <li class="flex items-start">
+                      <span class="text-primary mr-2">•</span>
+                      <span>CGPA: 3.23/4.00</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-primary mr-2">•</span>
+                      <span>Specialization: Web development</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-primary mr-2">•</span>
+                      <span
+                        >Final Year Project: "Training Record Management
+                        System"</span
+                      >
+                    </li>
+                  </ul>
                 </div>
-            </div>
-        </div>
-        <!-- Contact --> 
-        <div class="slide" id="5">
-            <div class="content fifth-content">
-                <div class="container-fluid">
-                    <!-- <div class="col-md-6">
-                        <div id="map"> -->
-                    <!-- How to change your own map point
-            1. Go to Google Maps
-            2. Click on your location point
-            3. Click "Share" and choose "Embed map" tab
-            4. Copy only URL and paste it within the src="" field below
-	-->
-                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                        </div>
-                    </div> -->
-                    <div class="">
-                        <form id="" action="" method="post">
-                            <div class="">
-                                <div class="first-content">
-                                    <div class="">
-                                        <div class="padtop">
-                                            <p class="mb-2">If you’d like to discuss a project or collaboration, feel
-                                                free to reach out to me! I'm open to both freelance opportunities and
-                                                full-time roles.</p>
-                                            <p class="mb-2">You can contact me through the following channels:</p>
-                                            <p class="mb-2">
-                                                <em>Email: </em>
-                                                <a href="mailto:wanadam16@gmail.com"
-                                                    target="_blank">wanadam16@gmail.com</a>
-                                            </p>
-                                            <p class="mb-2">
-                                                <em>LinkedIn: </em>
-                                                <a href="https://www.linkedin.com/in/wan-adam-66a37b170/"
-                                                    target="_blank">linkedin.com/in/wan-adam-66a37b170/</a>
-                                            </p>
-                                            <p class="mb-2">
-                                                <em>GitHub:</em>
-                                                <a href="https://github.com/wanadam00"
-                                                    target="_blank">github.com/wanadam00</a>
-                                            </p>
-                                            <!-- <h2>WAN ADAM</h2> -->
-                                            <!-- <p>Hi, I'm <em>Adam,</em> a passionate web application developer specializing in building robust, scalable, and user-friendly web applications. With a strong foundation in modern web technologies, I aim to deliver high-quality solutions that meet the needs of my clients and users.</p> -->
-                                            <!-- <div class="main-btn"><a href="#2">Read More</a></div> -->
-                                            <!-- <div class="fb-btn"><a href="https://www.facebook.com/templatemo/" target="_blank">My LinkedIn Page</a></div> -->
-                                        </div>
-                                    </div>
-                                    <!-- <div class="mb-2"><strong>Email:</strong> <p href="mailto:wanadam16@gmail.com">wanadam16@gmail.com</p></div>
-                                <div class="mb-2"><strong>LinkedIn:</strong> <p href=https://www.linkedin.com/in/wan-adam-66a37b170/" target="_blank">linkedin.com/in/wan-adam-66a37b170/</a></div>
-                                <div class="mb-2"><strong>GitHub:</strong> <p href="https://github.com/wanadam00" target="_blank">github.com/wanadam00</p></div> -->
-                                    <!-- <div class="col-md-12">
-                                  <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
-                                  </fieldset>
-                                </div>
-                                 <div class="col-md-12">
-                                  <fieldset>
-                                    <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject..." required="">
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <button type="submit" id="form-submit" class="btn">Send Now</button>
-                                  </fieldset>
-                                </div> -->
-                                </div>
-                        </form>
-                    </div>
+
+                <div
+                  class="bg-gray-50 p-6 rounded-lg border-l-4 border-secondary shadow-sm hover:shadow-md transition duration-300"
+                >
+                  <h4 class="font-bold text-lg text-gray-800">
+                    Diploma in Engineering Electronic Computer
+                  </h4>
+                  <p class="text-gray-600">
+                    Politeknik Sultan Mizan Zainal Abidin
+                  </p>
+                  <p class="text-gray-500 text-sm">2018 - 2021</p>
+                  <ul class="mt-2 space-y-1 text-gray-600 text-sm">
+                    <li class="flex items-start">
+                      <span class="text-secondary mr-2">•</span>
+                      <span>CGPA: 3.45/4.00</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-secondary mr-2">•</span>
+                      <span>Specialization: Computer Engineering</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-secondary mr-2">•</span>
+                      <span
+                        >Final Year Project: "Smart Door Lock System Using
+                        Arduino"</span
+                      >
+                    </li>
+                  </ul>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <div class="footer">
-        <!-- <div class="content">
-              <p>Copyright &copy; 2018 Your Company . <a href="http://www.templatemo.com/tm-512-moonlight">Moonlight</a> by <a href="http://www.html5max.com" target="_parent">HTML5 Max</a></p>
-          </div> -->
-    </div>
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
+            <span class="relative z-10"
+              >My <span class="text-primary">Expertise</span></span
+            >
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-secondary/30 -z-0"
+            ></span>
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"
+          ></div>
+          <p class="max-w-2xl mx-auto mt-6 text-gray-600">
+            Technologies I specialize in and methodologies I follow to deliver
+            high-quality web applications.
+          </p>
+        </div>
 
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Laravel Inertia Vue JS -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 animate-fade-in"
+          >
+            <div class="flex items-center mb-6">
+              <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                <i class="fab fa-laravel text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">
+                Laravel Inertia Vue JS
+              </h3>
+            </div>
+            <p class="text-gray-600 mb-6">
+              Laravel Inertia is a powerful tool that enables developers to
+              create contemporary single-page applications (SPAs) with Laravel
+              as the backend and Vue.js as the frontend framework, while
+              avoiding the complexities of standard APIs. It serves as a bridge
+              between the two, allowing for smooth communication and rendering
+              of Vue components straight from Laravel routes.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                >Laravel</span
+              >
+              <span
+                class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                >Vue.js</span
+              >
+              <span
+                class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                >Inertia.js</span
+              >
+              <span
+                class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                >SPA</span
+              >
+            </div>
+          </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+          <!-- Laravel Livewire -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 animate-fade-in"
+          >
+            <div class="flex items-center mb-6">
+              <div class="bg-secondary/10 p-3 rounded-lg mr-4">
+                <i class="fas fa-bolt text-secondary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">Laravel Livewire</h3>
+            </div>
+            <p class="text-gray-600 mb-6">
+              Laravel Livewire is a dynamic framework that allows developers to
+              create contemporary, interactive user interfaces for Laravel
+              applications without using much JavaScript. It enables you to
+              construct reactive components that respond to user activities in
+              real time while still utilising familiar Blade templates. Livewire
+              allows you to effortlessly maintain state, process form
+              submissions, and refresh the UI without the need for sophisticated
+              front-end frameworks.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm"
+                >Livewire</span
+              >
+              <span
+                class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm"
+                >Reactive UI</span
+              >
+              <span
+                class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm"
+                >Blade</span
+              >
+              <span
+                class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm"
+                >Real-time</span
+              >
+            </div>
+          </div>
 
-    <script src="js/vendor/bootstrap.min.js"></script>
+          <!-- AWS Cloud & DevOps -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 animate-fade-in"
+          >
+            <div class="flex items-center mb-6">
+              <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                <i class="fas fa-server text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">
+                AWS Cloud & DevOps
+              </h3>
+            </div>
+            <p class="text-gray-600 mb-6">
+              I have experience configuring and deploying full-stack
+              applications using AWS services such as EC2 for server hosting,
+              RDS for database management, and Route 53 for domain routing. I
+              follow DevOps practices like environment provisioning, secure
+              deployment workflows, and server monitoring.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                >AWS EC2</span
+              >
+              <span
+                class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                >AWS RDS</span
+              >
+              <span
+                class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                >Route 53</span
+              >
+              <span
+                class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                >Deployment</span
+              >
+              <span
+                class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                >DevOps</span
+              >
+            </div>
+          </div>
 
-    <script src="js/datepicker.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+          <!-- Next.js & Laravel API Integration -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 animate-fade-in"
+          >
+            <div class="flex items-center mb-6">
+              <div class="bg-secondary/10 p-3 rounded-lg mr-4">
+                <i class="fab fa-react text-secondary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">
+                Next.js & Laravel API Integration
+              </h3>
+            </div>
+            <p class="text-gray-600 mb-6">
+              I use Next.js as a modern frontend framework, integrating it with
+              Laravel APIs to build fast, scalable, and SEO-friendly web
+              applications. My experience includes authentication, data fetching
+              with SSR, and component optimization for seamless user
+              experiences.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm"
+                >Next.js</span
+              >
+              <span
+                class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm"
+                >React</span
+              >
+              <span
+                class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm"
+                >Laravel API</span
+              >
+              <span
+                class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm"
+                >RESTful</span
+              >
+              <span
+                class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm"
+                >SSR</span
+              >
+            </div>
+          </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
+          <!-- Agile Methodologies -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 animate-fade-in md:col-span-2"
+          >
+            <div class="flex items-center mb-6">
+              <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                <i class="fas fa-project-diagram text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">
+                Agile Methodologies
+              </h3>
+            </div>
+            <div class="flex flex-col md:flex-row gap-8">
+              <div class="md:w-1/2">
+                <p class="text-gray-600 mb-6">
+                  Experienced in working within Agile teams, I have contributed
+                  to projects following Agile methodologies, including Scrum and
+                  Kanban. During my internship at MZR GLOBAL SDN BHD, I
+                  collaborated with cross-functional teams, participated in
+                  daily stand-ups, sprint planning, and retrospectives, and
+                  delivered incremental updates to projects.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                    >Scrum</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                    >Kanban</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                    >Sprints</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                    >Collaboration</span
+                  >
+                </div>
+              </div>
+              <div class="md:w-1/2">
+                <img
+                  src="img/mzr.jpg"
+                  alt="Agile Methodology"
+                  class="rounded-lg shadow-md w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Work Section -->
+    <section id="work" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
+            <span class="relative z-10"
+              >My <span class="text-primary">Projects</span></span
+            >
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-secondary/30 -z-0"
+            ></span>
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"
+          ></div>
+          <p class="max-w-2xl mx-auto mt-6 text-gray-600">
+            A selection of my recent work showcasing my skills and capabilities.
+          </p>
+        </div>
 
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Sport Shop -->
+          <div
+            class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-500 animate-fade-in"
+          >
+            <div class="h-64 overflow-hidden">
+              <img
+                src="img/sportshop.png"
+                alt="Sport Shop"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+              />
+            </div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6"
+            >
+              <div
+                class="transform translate-y-4 group-hover:translate-y-0 transition duration-500"
+              >
+                <h3 class="text-xl font-bold text-white mb-2">Sport Shop</h3>
+                <p class="text-gray-200 mb-4">E-commerce system</p>
+                <a
+                  href="ecommerce.html"
+                  class="inline-block px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+          </div>
 
-            // navigation click actions 
-            $('.scroll-link').on('click', function (event) {
-                event.preventDefault();
-                var sectionID = $(this).attr("data-id");
-                scrollToID('#' + sectionID, 750);
-            });
-            // scroll to top action
-            $('.scroll-top').on('click', function (event) {
-                event.preventDefault();
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
-            });
-            // mobile nav toggle
-            $('#nav-toggle').on('click', function (event) {
-                event.preventDefault();
-                $('#main-nav').toggleClass("open");
-            });
+          <!-- Opih -->
+          <div
+            class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-500 animate-fade-in"
+          >
+            <div class="h-64 overflow-hidden">
+              <img
+                src="img/opih2.png"
+                alt="Opih"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+              />
+            </div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6"
+            >
+              <div
+                class="transform translate-y-4 group-hover:translate-y-0 transition duration-500"
+              >
+                <h3 class="text-xl font-bold text-white mb-2">Opih</h3>
+                <p class="text-gray-200 mb-4">Job application system</p>
+                <a
+                  href="opih.html"
+                  class="inline-block px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Training Management System -->
+          <div
+            class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-500 animate-fade-in"
+          >
+            <div class="h-64 overflow-hidden">
+              <img
+                src="img/trms.png"
+                alt="Training Management System"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+              />
+            </div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-6"
+            >
+              <div
+                class="transform translate-y-4 group-hover:translate-y-0 transition duration-500"
+              >
+                <h3 class="text-xl font-bold text-white mb-2">
+                  Training Management System
+                </h3>
+                <p class="text-gray-200 mb-4">Manage staff training</p>
+                <a
+                  href="training.html"
+                  class="inline-block px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
+            <span class="relative z-10"
+              >Get In <span class="text-primary">Touch</span></span
+            >
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-secondary/30 -z-0"
+            ></span>
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"
+          ></div>
+          <p class="max-w-2xl mx-auto mt-6 text-gray-600">
+            Feel free to reach out for collaborations or just a friendly hello.
+          </p>
+        </div>
+
+        <div
+          class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden"
+        >
+          <div class="md:flex">
+            <div
+              class="md:w-1/2 bg-gradient-to-br from-primary to-secondary p-12 text-white"
+            >
+              <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+              <p class="mb-8">
+                If you'd like to discuss a project or collaboration, feel free
+                to reach out to me! I'm open to both freelance opportunities and
+                full-time roles.
+              </p>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="bg-white/20 p-3 rounded-lg mr-4">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold">Email</h4>
+                    <a href="mailto:wanadam16@gmail.com" class="hover:underline"
+                      >wanadam16@gmail.com</a
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="bg-white/20 p-3 rounded-lg mr-4">
+                    <i class="fab fa-linkedin-in"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold">LinkedIn</h4>
+                    <a
+                      href="https://www.linkedin.com/in/wan-adam-66a37b170/"
+                      target="_blank"
+                      class="hover:underline"
+                      >linkedin.com/in/wan-adam-66a37b170/</a
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="bg-white/20 p-3 rounded-lg mr-4">
+                    <i class="fab fa-github"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold">GitHub</h4>
+                    <a
+                      href="https://github.com/wanadam00"
+                      target="_blank"
+                      class="hover:underline"
+                      >github.com/wanadam00</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="md:w-1/2 p-12">
+              <form
+                action="https://formsubmit.co/wanadam16@gmail.com"
+                method="POST"
+                class="space-y-6"
+              >
+                <!-- Optional hidden inputs -->
+                <input type="hidden" name="_captcha" value="false" />
+                <!-- <input
+                  type="hidden"
+                  name="_next"
+                  value="https://yourwebsite.com/thank-you.html"
+                /> -->
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New Contact Form Submission"
+                />
+
+                <div>
+                  <label
+                    for="name"
+                    class="block text-gray-700 font-medium mb-2"
+                  >
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="email"
+                    class="block text-gray-700 font-medium mb-2"
+                  >
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="subject"
+                    class="block text-gray-700 font-medium mb-2"
+                  >
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="message"
+                    class="block text-gray-700 font-medium mb-2"
+                  >
+                    Your Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 px-6 rounded-lg font-medium hover:shadow-lg transition duration-300 transform hover:-translate-y-1"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a href="#" class="text-2xl font-bold text-white"
+              >WAN<span class="text-primary">ADAM</span></a
+            >
+            <p class="mt-2 text-gray-400">Full-Stack Web Developer</p>
+          </div>
+
+          <div class="flex space-x-6">
+            <a
+              href="mailto:wanadam16@gmail.com"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fas fa-envelope text-xl"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/wan-adam-66a37b170/"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fab fa-linkedin-in text-xl"></i>
+            </a>
+            <a
+              href="https://github.com/wanadam00"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fab fa-github text-xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Wan Adam. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a
+      href="#"
+      id="back-to-top"
+      class="fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobile-menu");
+          menu.classList.toggle("hidden");
         });
-        // scroll function
-        function scrollToID(id, speed) {
-            var offSet = 0;
-            var targetOffset = $(id).offset().top - offSet;
-            var mainNav = $('#main-nav');
-            $('html,body').animate({ scrollTop: targetOffset }, speed);
-            if (mainNav.hasClass("open")) {
-                mainNav.css("height", "1px").removeClass("in").addClass("collapse");
-                mainNav.removeClass("open");
-            }
-        }
-        if (typeof console === "undefined") {
-            console = {
-                log: function () { }
-            };
-        }
-    </script>
-</body>
 
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById("mobile-menu");
+            mobileMenu.classList.add("hidden");
+          }
+        });
+      });
+
+      // Back to top button
+      window.addEventListener("scroll", function () {
+        const backToTopButton = document.getElementById("back-to-top");
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.remove("opacity-0", "invisible");
+          backToTopButton.classList.add("opacity-100", "visible");
+        } else {
+          backToTopButton.classList.remove("opacity-100", "visible");
+          backToTopButton.classList.add("opacity-0", "invisible");
+        }
+      });
+
+      // Animation on scroll
+      const animateOnScroll = function () {
+        const elements = document.querySelectorAll(
+          ".animate-fade-in, .animate-slide-up"
+        );
+
+        elements.forEach((element) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+
+          if (elementPosition < windowHeight - 100) {
+            element.classList.add("opacity-100");
+          }
+        });
+      };
+
+      // Initialize animations
+      window.addEventListener("load", animateOnScroll);
+      window.addEventListener("scroll", animateOnScroll);
+    </script>
+  </body>
 </html>
