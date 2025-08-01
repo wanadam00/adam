@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Storage | Wan Adam - Full-Stack Developer</title>
+    <meta
+      name="description"
+      content="Student Storage Management System developed by Wan Adam"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3B82F6",
+              secondary: "#10B981",
+              dark: "#1F2937",
+              light: "#F9FAFB",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            animation: {
+              "fade-in": "fadeIn 0.5s ease-in-out",
+              "slide-up": "slideUp 0.5s ease-out",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(20px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body class="font-sans bg-gray-50 text-dark">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <a
+            href="#"
+            class="text-2xl font-bold text-primary transition hover:text-primary/80"
+          >
+            WAN<span class="text-secondary">ADAM</span>
+          </a>
+
+          <!-- Desktop Nav -->
+          <div class="hidden md:flex space-x-8">
+            <a href="index.html#home" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-home"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Home</span
+              >
+            </a>
+            <a href="index.html#about" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-user"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >About</span
+              >
+            </a>
+            <a href="index.html#experience" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-pencil-alt"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Experience</span
+              >
+            </a>
+            <a href="index.html#work" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-code"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Work</span
+              >
+            </a>
+            <a href="index.html#contact" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-envelope"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Contact</span
+              >
+            </a>
+          </div>
+
+          <!-- Mobile Toggle Button -->
+          <button
+            id="mobile-menu-button"
+            class="relative w-8 h-8 md:hidden focus:outline-none z-50"
+          >
+            <div
+              id="bar1"
+              class="absolute w-6 h-0.5 bg-dark transition-all duration-300 ease-in-out origin-left top-2"
+            ></div>
+            <div
+              id="bar2"
+              class="absolute w-6 h-0.5 bg-dark transition-all duration-300 ease-in-out top-4"
+            ></div>
+            <div
+              id="bar3"
+              class="absolute w-6 h-0.5 bg-dark transition-all duration-300 ease-in-out origin-left top-6"
+            ></div>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Overlay -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"
+    ></div>
+
+    <!-- Mobile Sidebar Menu -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 left-0 h-full w-64 bg-white z-50 transform -translate-x-full transition-transform duration-300 md:hidden shadow-lg"
+    >
+      <div class="p-4 space-y-4">
+        <a
+          href="index.html#home"
+          class="block text-dark hover:text-primary transition"
+          ><i class="fas fa-home mr-2"></i>Home</a
+        >
+        <a
+          href="index.html#about"
+          class="block text-dark hover:text-primary transition"
+          ><i class="fas fa-user mr-2"></i>About</a
+        >
+        <a
+          href="index.html#experience"
+          class="block text-dark hover:text-primary transition"
+          ><i class="fas fa-pencil-alt mr-2"></i>Experience</a
+        >
+        <a
+          href="index.html#work"
+          class="block text-dark hover:text-primary transition"
+          ><i class="fas fa-code mr-2"></i>Work</a
+        >
+        <a
+          href="index.html#contact"
+          class="block text-dark hover:text-primary transition"
+          ><i class="fas fa-envelope mr-2"></i>Contact</a
+        >
+      </div>
+    </div>
+
+    <!-- Project Header -->
+    <header class="pt-32 pb-20 bg-gradient-to-r from-primary to-secondary">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center animate-fade-in">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            Student Storage Services
+          </h1>
+          <p class="text-xl text-white/90 mb-8">
+            A static website designed to promote student storage services — with
+            clear service info, contact integration, and interactive maps.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-4">
+            <span
+              class="px-4 py-2 bg-white/20 text-white rounded-full text-sm backdrop-blur-sm"
+              >HTML</span
+            >
+            <span
+              class="px-4 py-2 bg-white/20 text-white rounded-full text-sm backdrop-blur-sm"
+              >Tailwind CSS</span
+            >
+            <span
+              class="px-4 py-2 bg-white/20 text-white rounded-full text-sm backdrop-blur-sm"
+              >WhatsApp API</span
+            >
+            <span
+              class="px-4 py-2 bg-white/20 text-white rounded-full text-sm backdrop-blur-sm"
+              >Google Maps</span
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Project Showcase -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-6">
+        <div
+          class="max-w-5xl mx-auto overflow-hidden rounded-xl shadow-xl animate-slide-up"
+        >
+          <img
+            src="img/semstore.png"
+            alt="Sports Store Dashboard"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <div
+            class="bg-white rounded-xl shadow-lg overflow-hidden animate-fade-in"
+          >
+            <!-- Overview -->
+            <div class="p-8 md:p-12 border-b border-gray-200">
+              <h2
+                class="text-2xl font-bold text-gray-800 mb-6 flex items-center"
+              >
+                <span class="w-4 h-4 bg-primary rounded-full mr-3"></span>
+                Project Overview
+              </h2>
+              <p class="text-gray-600 leading-relaxed">
+                Student Storage is a lightweight static website built to promote
+                item storage services for students. The system provides a clean
+                and responsive design to showcase services, pricing, process,
+                and facility details. It includes integrations with WhatsApp API
+                for direct messaging and Google Maps for real-time directions.
+                The site is ideal for businesses that don’t require a backend
+                but still want an effective web presence.
+              </p>
+            </div>
+
+            <!-- Key Features -->
+            <div class="p-8 md:p-12 border-b border-gray-200">
+              <h2
+                class="text-2xl font-bold text-gray-800 mb-6 flex items-center"
+              >
+                <span class="w-4 h-4 bg-secondary rounded-full mr-3"></span>
+                Key Features
+              </h2>
+
+              <div class="space-y-8">
+                <!-- Feature 1 -->
+                <!-- Feature 1 -->
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div class="md:w-1/4">
+                    <div class="bg-primary/10 p-4 rounded-lg h-full">
+                      <h3 class="font-semibold text-primary">
+                        Static Web Application
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="md:w-3/4">
+                    <p class="text-gray-600">
+                      Built using only HTML, Tailwind CSS, and JavaScript — no
+                      backend or database involved, ensuring fast performance
+                      and easy deployment.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div class="md:w-1/4">
+                    <div class="bg-primary/10 p-4 rounded-lg h-full">
+                      <h3 class="font-semibold text-primary">
+                        Service Highlights
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="md:w-3/4">
+                    <p class="text-gray-600">
+                      Clearly structured sections explaining available storage
+                      services, pricing plans, process steps, and unique
+                      features like facility security.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div class="md:w-1/4">
+                    <div class="bg-primary/10 p-4 rounded-lg h-full">
+                      <h3 class="font-semibold text-primary">
+                        Responsive Design
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="md:w-3/4">
+                    <p class="text-gray-600">
+                      Fully responsive layout optimized for desktop, tablet, and
+                      mobile users using Tailwind CSS utility-first classes.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div class="md:w-1/4">
+                    <div class="bg-primary/10 p-4 rounded-lg h-full">
+                      <h3 class="font-semibold text-primary">
+                        WhatsApp Integration
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="md:w-3/4">
+                    <p class="text-gray-600">
+                      A direct link to WhatsApp chat using the WhatsApp API,
+                      allowing customers to instantly contact the service owner.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div class="md:w-1/4">
+                    <div class="bg-primary/10 p-4 rounded-lg h-full">
+                      <h3 class="font-semibold text-primary">
+                        Google Maps Routing
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="md:w-3/4">
+                    <p class="text-gray-600">
+                      Integrated Google Maps API link enables users to click and
+                      view navigation routes directly to the facility.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div class="md:w-1/4">
+                    <div class="bg-primary/10 p-4 rounded-lg h-full">
+                      <h3 class="font-semibold text-primary">
+                        Lightweight Deployment
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="md:w-3/4">
+                    <p class="text-gray-600">
+                      Easily deployed on platforms like GitHub Pages or Netlify
+                      since the system does not rely on server-side processing.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technologies -->
+            <div class="p-8 md:p-12">
+              <h2
+                class="text-2xl font-bold text-gray-800 mb-6 flex items-center"
+              >
+                <span class="w-4 h-4 bg-primary rounded-full mr-3"></span>
+                Technologies Used
+              </h2>
+
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                  <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
+                  <h4 class="font-semibold">HTML5</h4>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                  <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
+                  <h4 class="font-semibold">CSS3</h4>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                  <i class="fab fa-js text-4xl text-yellow-500 mb-2"></i>
+                  <h4 class="font-semibold">JavaScript</h4>
+                </div>
+
+                <div
+                  class="bg-gray-100 p-4 rounded-lg text-center hover:shadow-lg transition duration-300 transform hover:-translate-y-1"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                    alt="Tailwind CSS"
+                    class="w-10 h-10 mx-auto mb-2"
+                  />
+                  <h4 class="font-semibold text-gray-700">Tailwind CSS</h4>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                  <i class="fab fa-whatsapp text-4xl text-green-500 mb-2"></i>
+                  <h4 class="font-semibold">WhatsApp API</h4>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                  <i
+                    class="fas fa-map-marked-alt text-4xl text-red-500 mb-2"
+                  ></i>
+                  <h4 class="font-semibold">Google Maps</h4>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                  <i class="fab fa-git-alt text-4xl text-orange-600 mb-2"></i>
+                  <h4 class="font-semibold">Git</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="mt-12 text-center">
+            <a
+              href="index.html"
+              class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition duration-300"
+            >
+              <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
+            </a>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a href="index.html" class="text-2xl font-bold text-white"
+              >WAN<span class="text-primary">ADAM</span></a
+            >
+            <p class="mt-2 text-gray-400">Full-Stack Web Developer</p>
+          </div>
+
+          <div class="flex space-x-6">
+            <a
+              href="mailto:wanadam16@gmail.com"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fas fa-envelope text-xl"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/wan-adam-66a37b170/"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fab fa-linkedin-in text-xl"></i>
+            </a>
+            <a
+              href="https://github.com/wanadam00"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fab fa-github text-xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2023 Wan Adam. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const button = document.getElementById("mobile-menu-button");
+      const sidebar = document.getElementById("mobile-menu");
+      const overlay = document.getElementById("overlay");
+
+      const bar1 = document.getElementById("bar1");
+      const bar2 = document.getElementById("bar2");
+      const bar3 = document.getElementById("bar3");
+
+      button.addEventListener("click", () => {
+        const isOpen = sidebar.classList.contains("translate-x-0");
+
+        sidebar.classList.toggle("-translate-x-full");
+        sidebar.classList.toggle("translate-x-0");
+        overlay.classList.toggle("hidden");
+
+        // Animate hamburger to X
+        if (!isOpen) {
+          bar1.classList.add("rotate-45", "translate-y-2");
+          bar3.classList.add("-rotate-45", "-translate-y-2");
+          bar2.classList.add("opacity-0");
+        } else {
+          bar1.classList.remove("rotate-45", "translate-y-2");
+          bar3.classList.remove("-rotate-45", "-translate-y-2");
+          bar2.classList.remove("opacity-0");
+        }
+      });
+
+      overlay.addEventListener("click", () => {
+        sidebar.classList.add("-translate-x-full");
+        sidebar.classList.remove("translate-x-0");
+        overlay.classList.add("hidden");
+
+        // Reset icon
+        bar1.classList.remove("rotate-45", "translate-y-2");
+        bar3.classList.remove("-rotate-45", "-translate-y-2");
+        bar2.classList.remove("opacity-0");
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            sidebar.classList.add("-translate-x-full");
+            sidebar.classList.remove("translate-x-0");
+            overlay.classList.add("hidden");
+
+            // Reset hamburger icon back to bars
+            bar1.classList.remove("rotate-45", "translate-y-2");
+            bar3.classList.remove("-rotate-45", "-translate-y-2");
+            bar2.classList.remove("opacity-0");
+          }
+        });
+      });
+
+      // Animation on scroll
+      const animateOnScroll = function () {
+        const elements = document.querySelectorAll(
+          ".animate-fade-in, .animate-slide-up"
+        );
+
+        elements.forEach((element) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+
+          if (elementPosition < windowHeight - 100) {
+            element.classList.add("opacity-100");
+          }
+        });
+      };
+
+      // Initialize animations
+      window.addEventListener("load", animateOnScroll);
+      window.addEventListener("scroll", animateOnScroll);
+    </script>
+  </body>
+</html>
