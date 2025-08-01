@@ -55,29 +55,110 @@
   <body class="font-sans bg-gray-50 text-dark">
     <!-- Navigation -->
     <nav
-      class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm"
+      class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300"
     >
       <div class="container mx-auto px-6 py-4">
         <div class="flex justify-between items-center">
-          <a href="index.html" class="text-2xl font-bold text-primary"
-            >WAN<span class="text-secondary">ADAM</span></a
+          <a
+            href="#"
+            class="text-2xl font-bold text-primary transition hover:text-primary/80"
           >
+            WAN<span class="text-secondary">ADAM</span>
+          </a>
 
+          <!-- Desktop Nav -->
           <div class="hidden md:flex space-x-8">
-            <a
-              href="index.html"
-              class="text-gray-600 hover:text-primary transition duration-300"
-            >
-              <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
+            <a href="#home" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-home"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Home</span
+              >
+            </a>
+            <a href="#about" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-user"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >About</span
+              >
+            </a>
+            <a href="#experience" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-pencil-alt"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Experience</span
+              >
+            </a>
+            <a href="#work" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-code"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Work</span
+              >
+            </a>
+            <a href="#contact" class="nav-link group">
+              <span class="mr-2"><i class="fas fa-envelope"></i></span>
+              <span
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                >Contact</span
+              >
             </a>
           </div>
 
-          <button class="md:hidden focus:outline-none" id="mobile-menu-button">
-            <i class="fas fa-bars text-2xl text-dark"></i>
+          <!-- Mobile Toggle Button -->
+          <!-- Mobile Toggle Button -->
+          <button
+            id="mobile-menu-button"
+            class="relative w-8 h-8 md:hidden focus:outline-none z-50"
+          >
+            <div
+              id="bar1"
+              class="absolute w-6 h-0.5 bg-dark transition-all duration-300 ease-in-out origin-left top-2"
+            ></div>
+            <div
+              id="bar2"
+              class="absolute w-6 h-0.5 bg-dark transition-all duration-300 ease-in-out top-4"
+            ></div>
+            <div
+              id="bar3"
+              class="absolute w-6 h-0.5 bg-dark transition-all duration-300 ease-in-out origin-left top-6"
+            ></div>
           </button>
         </div>
       </div>
     </nav>
+
+    <!-- Overlay -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"
+    ></div>
+
+    <!-- Mobile Sidebar Menu -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 left-0 h-full w-64 bg-white z-50 transform -translate-x-full transition-transform duration-300 md:hidden shadow-lg"
+    >
+      <div class="p-4 space-y-4">
+        <a href="#home" class="block text-dark hover:text-primary transition"
+          ><i class="fas fa-home mr-2"></i>Home</a
+        >
+        <a href="#about" class="block text-dark hover:text-primary transition"
+          ><i class="fas fa-user mr-2"></i>About</a
+        >
+        <a
+          href="#experience"
+          class="block text-dark hover:text-primary transition"
+          ><i class="fas fa-pencil-alt mr-2"></i>Experience</a
+        >
+        <a href="#work" class="block text-dark hover:text-primary transition"
+          ><i class="fas fa-code mr-2"></i>Work</a
+        >
+        <a href="#contact" class="block text-dark hover:text-primary transition"
+          ><i class="fas fa-envelope mr-2"></i>Contact</a
+        >
+      </div>
+    </div>
 
     <!-- Project Header -->
     <header class="pt-32 pb-20 bg-gradient-to-r from-primary to-secondary">
@@ -340,6 +421,17 @@
                   <h4 class="font-semibold">JavaScript</h4>
                 </div>
 
+                <div
+                  class="bg-gray-100 p-4 rounded-lg text-center hover:shadow-lg transition duration-300 transform hover:-translate-y-1"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                    alt="Tailwind CSS"
+                    class="w-10 h-10 mx-auto mb-2"
+                  />
+                  <h4 class="font-semibold text-gray-700">Tailwind CSS</h4>
+                </div>
+
                 <div class="bg-gray-100 p-4 rounded-lg text-center">
                   <i class="fab fa-vuejs text-4xl text-green-500 mb-2"></i>
                   <h4 class="font-semibold">Vue.js</h4>
@@ -373,14 +465,14 @@
             </div>
           </div>
 
-          <div class="mt-12 text-center">
+          <!-- <div class="mt-12 text-center">
             <a
               href="index.html"
               class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition duration-300"
             >
               <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -430,12 +522,70 @@
 
     <script>
       // Mobile menu toggle
-      document
-        .getElementById("mobile-menu-button")
-        .addEventListener("click", function () {
-          const menu = document.getElementById("mobile-menu");
-          menu.classList.toggle("hidden");
+      const button = document.getElementById("mobile-menu-button");
+      const sidebar = document.getElementById("mobile-menu");
+      const overlay = document.getElementById("overlay");
+
+      const bar1 = document.getElementById("bar1");
+      const bar2 = document.getElementById("bar2");
+      const bar3 = document.getElementById("bar3");
+
+      button.addEventListener("click", () => {
+        const isOpen = sidebar.classList.contains("translate-x-0");
+
+        sidebar.classList.toggle("-translate-x-full");
+        sidebar.classList.toggle("translate-x-0");
+        overlay.classList.toggle("hidden");
+
+        // Animate hamburger to X
+        if (!isOpen) {
+          bar1.classList.add("rotate-45", "translate-y-2");
+          bar3.classList.add("-rotate-45", "-translate-y-2");
+          bar2.classList.add("opacity-0");
+        } else {
+          bar1.classList.remove("rotate-45", "translate-y-2");
+          bar3.classList.remove("-rotate-45", "-translate-y-2");
+          bar2.classList.remove("opacity-0");
+        }
+      });
+
+      overlay.addEventListener("click", () => {
+        sidebar.classList.add("-translate-x-full");
+        sidebar.classList.remove("translate-x-0");
+        overlay.classList.add("hidden");
+
+        // Reset icon
+        bar1.classList.remove("rotate-45", "translate-y-2");
+        bar3.classList.remove("-rotate-45", "-translate-y-2");
+        bar2.classList.remove("opacity-0");
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            sidebar.classList.add("-translate-x-full");
+            sidebar.classList.remove("translate-x-0");
+            overlay.classList.add("hidden");
+
+            // Reset hamburger icon back to bars
+            bar1.classList.remove("rotate-45", "translate-y-2");
+            bar3.classList.remove("-rotate-45", "-translate-y-2");
+            bar2.classList.remove("opacity-0");
+          }
         });
+      });
 
       // Animation on scroll
       const animateOnScroll = function () {
