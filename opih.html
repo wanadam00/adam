@@ -18,19 +18,16 @@
         theme: {
           extend: {
             colors: {
-              primary: "#3B82F6",
-              secondary: "#10B981",
-              dark: "#1F2937",
-              light: "#F9FAFB",
+              primary: '#ffffff',
+              secondary: '#000000',
+              dark: '#121212',
+              light: '#E0E0E0',
+              glass: 'rgba(255, 255, 255, 0.1)',
             },
             fontFamily: {
               sans: ["Inter", "sans-serif"],
             },
             animation: {
-              "fade-in": "fadeIn 0.5s ease-in-out",
-              "slide-up": "slideUp 0.5s ease-out",
-            },
-            keyframes: {
               fadeIn: {
                 "0%": { opacity: "0" },
                 "100%": { opacity: "1" },
@@ -38,6 +35,20 @@
               slideUp: {
                 "0%": { transform: "translateY(20px)", opacity: "0" },
                 "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              bounceIn: {
+                "0%": { transform: "scale(0.3)", opacity: "0" },
+                "50%": { transform: "scale(1.05)" },
+                "70%": { transform: "scale(0.9)" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+              glow: {
+                "0%": { boxShadow: "0 0 20px rgba(255, 255, 255, 0.5)" },
+                "100%": { boxShadow: "0 0 30px rgba(255, 255, 255, 0.8)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-10px)" },
               },
             },
           },
@@ -52,126 +63,88 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <style>
+      .nav-link.active {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 8px 16px;
+        transition: all 0.3s ease;
+      }
+    </style>
   </head>
 
-  <body class="font-sans bg-gray-50 text-dark">
+  <body class="font-sans bg-dark text-light dark">
     <!-- Navigation -->
     <nav
-      class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300"
+      class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-glass/10 backdrop-blur-2xl shadow-2xl border border-white/20 rounded-full px-8 py-4 transition-all duration-300 hidden md:flex"
     >
-      <div class="container mx-auto px-6 py-4">
-        <div class="flex justify-between items-center">
+      <div class="flex justify-center items-center">
           <a
-            href="#"
-            class="text-2xl font-bold text-primary transition hover:text-primary/80"
+            href="index.html"
+            class="text-xl font-bold text-primary mr-8 transition hover:text-secondary"
           >
             WAN<span class="text-secondary">ADAM</span>
           </a>
 
           <!-- Desktop Nav -->
-          <div class="hidden md:flex space-x-8">
-            <a href="index.html#home" class="nav-link group">
-              <span class="mr-2"><i class="fas fa-home"></i></span>
+          <div class="flex space-x-6">
+            <a href="index.html#home" class="nav-link group text-light hover:text-primary transition-colors duration-300">
               <span
-                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 group-hover:after:w-full"
                 >Home</span
               >
             </a>
-            <a href="index.html#about" class="nav-link group">
-              <span class="mr-2"><i class="fas fa-user"></i></span>
+            <a href="index.html#about" class="nav-link group text-light hover:text-primary transition-colors duration-300">
               <span
-                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 group-hover:after:w-full"
                 >About</span
               >
             </a>
-            <a href="index.html#experience" class="nav-link group">
-              <span class="mr-2"><i class="fas fa-pencil-alt"></i></span>
+            <a href="index.html#experience" class="nav-link group text-light hover:text-primary transition-colors duration-300">
               <span
-                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 group-hover:after:w-full"
                 >Experience</span
               >
             </a>
-            <a href="index.html#work" class="nav-link group">
-              <span class="mr-2"><i class="fas fa-code"></i></span>
+            <a href="index.html#work" class="nav-link group text-light hover:text-primary transition-colors duration-300">
               <span
-                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 group-hover:after:w-full"
                 >Work</span
               >
             </a>
-            <a href="index.html#contact" class="nav-link group">
-              <span class="mr-2"><i class="fas fa-envelope"></i></span>
+            <a href="index.html#contact" class="nav-link group text-light hover:text-primary transition-colors duration-300">
               <span
-                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full"
+                class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 group-hover:after:w-full"
                 >Contact</span
               >
             </a>
           </div>
-
-          <!-- Mobile Toggle Button -->
-          <!-- Mobile Toggle Button -->
-          <button
-            id="mobile-menu-button"
-            class="relative w-8 h-8 md:hidden focus:outline-none z-50"
-          >
-            <div
-              id="bar1"
-              class="absolute w-6 h-0.5 bg-dark transition-all duration-300 ease-in-out origin-left top-2"
-            ></div>
-            <div
-              id="bar2"
-              class="absolute w-6 h-0.5 bg-dark transition-all duration-300 ease-in-out top-4"
-            ></div>
-            <div
-              id="bar3"
-              class="absolute w-6 h-0.5 bg-dark transition-all duration-300 ease-in-out origin-left top-6"
-            ></div>
-          </button>
         </div>
       </div>
     </nav>
 
-    <!-- Overlay -->
-    <div
-      id="overlay"
-      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"
-    ></div>
-
-    <!-- Mobile Sidebar Menu -->
-    <div
-      id="mobile-menu"
-      class="fixed top-0 left-0 h-full w-64 bg-white z-50 transform -translate-x-full transition-transform duration-300 md:hidden shadow-lg"
-    >
-      <div class="p-4 space-y-4">
-        <a
-          href="index.html#home"
-          class="block text-dark hover:text-primary transition"
-          ><i class="fas fa-home mr-2"></i>Home</a
-        >
-        <a
-          href="index.html#about"
-          class="block text-dark hover:text-primary transition"
-          ><i class="fas fa-user mr-2"></i>About</a
-        >
-        <a
-          href="index.html#experience"
-          class="block text-dark hover:text-primary transition"
-          ><i class="fas fa-pencil-alt mr-2"></i>Experience</a
-        >
-        <a
-          href="index.html#work"
-          class="block text-dark hover:text-primary transition"
-          ><i class="fas fa-code mr-2"></i>Work</a
-        >
-        <a
-          href="index.html#contact"
-          class="block text-dark hover:text-primary transition"
-          ><i class="fas fa-envelope mr-2"></i>Contact</a
-        >
-      </div>
-    </div>
+    <!-- Bottom Navigation for Mobile -->
+    <nav class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-glass/0 backdrop-blur-2xl shadow-2xl border border-white/20 rounded-full px-8 py-4 flex space-x-6 items-center md:hidden">
+      <a href="index.html#home" class="nav-link text-center p-2">
+        <i class="fas fa-home text-xl"></i>
+      </a>
+      <a href="index.html#about" class="nav-link text-center p-2">
+        <i class="fas fa-user text-xl"></i>
+      </a>
+      <a href="index.html#experience" class="nav-link text-center p-2">
+        <i class="fas fa-pencil-alt text-xl"></i>
+      </a>
+      <a href="index.html#work" class="nav-link text-center p-2">
+        <i class="fas fa-code text-xl"></i>
+      </a>
+      <a href="index.html#contact" class="nav-link text-center p-2">
+        <i class="fas fa-envelope text-xl"></i>
+      </a>
+    </nav>
 
     <!-- Project Header -->
-    <header class="pt-32 pb-20 bg-gradient-to-r from-primary to-secondary">
+    <header class="pt-32 pb-20 bg-glass/10 backdrop-blur-xl text-light border-t border-light/10">
       <div class="container mx-auto px-6">
         <div class="max-w-4xl mx-auto text-center animate-fade-in">
           <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -207,7 +180,7 @@
             <a
               href="https://opih.my/"
               target="_blank"
-              class="inline-flex items-center px-6 py-3 bg-white text-primary rounded-lg hover:bg-gray-100 transition duration-300"
+                class="inline-flex items-center px-6 py-3 bg-secondary text-primary rounded-full font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center"
             >
               <i class="fas fa-external-link-alt mr-2"></i> Visit Live Site
             </a>
@@ -217,7 +190,7 @@
     </header>
 
     <!-- Project Showcase -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-dark">
       <div class="container mx-auto px-6">
         <div
           class="max-w-5xl mx-auto overflow-hidden rounded-xl shadow-xl animate-slide-up"
@@ -232,7 +205,7 @@
     </section>
 
     <!-- Project Details -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-16 bg-dark">
       <div class="container mx-auto px-6">
         <div class="max-w-4xl mx-auto">
           <div
@@ -434,17 +407,17 @@
               <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-gray-100 p-4 rounded-lg text-center">
                   <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
-                  <h4 class="font-semibold">HTML5</h4>
+                  <h4 class="font-semibold text-gray-700">HTML5</h4>
                 </div>
 
                 <div class="bg-gray-100 p-4 rounded-lg text-center">
                   <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
-                  <h4 class="font-semibold">CSS3</h4>
+                  <h4 class="font-semibold text-gray-700">CSS3</h4>
                 </div>
 
                 <div class="bg-gray-100 p-4 rounded-lg text-center">
                   <i class="fab fa-js text-4xl text-yellow-500 mb-2"></i>
-                  <h4 class="font-semibold">JavaScript</h4>
+                  <h4 class="font-semibold text-gray-700">JavaScript</h4>
                 </div>
 
                 <div
@@ -460,27 +433,27 @@
 
                 <div class="bg-gray-100 p-4 rounded-lg text-center">
                   <i class="fab fa-php text-4xl text-purple-500 mb-2"></i>
-                  <h4 class="font-semibold">PHP</h4>
+                  <h4 class="font-semibold text-gray-700">PHP</h4>
                 </div>
 
                 <div class="bg-gray-100 p-4 rounded-lg text-center">
                   <i class="fas fa-database text-4xl text-blue-600 mb-2"></i>
-                  <h4 class="font-semibold">MySQL</h4>
+                  <h4 class="font-semibold text-gray-700">MySQL</h4>
                 </div>
 
                 <div class="bg-gray-100 p-4 rounded-lg text-center">
                   <i class="fab fa-laravel text-4xl text-red-500 mb-2"></i>
-                  <h4 class="font-semibold">Laravel</h4>
+                  <h4 class="font-semibold text-gray-700">Laravel</h4>
                 </div>
 
                 <div class="bg-gray-100 p-4 rounded-lg text-center">
                   <i class="fas fa-bolt text-4xl text-yellow-600 mb-2"></i>
-                  <h4 class="font-semibold">Livewire</h4>
+                  <h4 class="font-semibold text-gray-700">Livewire</h4>
                 </div>
 
                 <div class="bg-gray-100 p-4 rounded-lg text-center">
                   <i class="fab fa-git-alt text-4xl text-orange-600 mb-2"></i>
-                  <h4 class="font-semibold">Git</h4>
+                  <h4 class="font-semibold text-gray-700">Git</h4>
                 </div>
               </div>
             </div>
@@ -499,7 +472,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white">
+    <footer class="bg-glass/10 backdrop-blur-xl text-light border-t border-light/10">
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row justify-between py-12">
           <!-- Brand & About - Full width on mobile -->
@@ -674,6 +647,40 @@
       // Initialize animations
       window.addEventListener("load", animateOnScroll);
       window.addEventListener("scroll", animateOnScroll);
+
+      // Active nav link on scroll
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section[id]');
+
+      function updateActiveNav() {
+        const scrollY = window.pageYOffset;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute('id');
+
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href').includes(sectionId)) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveNav);
+      window.addEventListener('load', updateActiveNav);
+
+      // Set active on click
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
     </script>
   </body>
 </html>
