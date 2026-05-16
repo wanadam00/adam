@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMF Data Integration | Wan Adam - Full-Stack Developer</title>
+    <meta
+      name="description"
+      content="IMF market index data integration for gcsg-grosvenor.com with React-based charting for Coal, Natural Gas, and Oil indices."
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#ffffff',
+              secondary: '#000000',
+              dark: '#121212',
+              light: '#E0E0E0',
+              glass: 'rgba(255, 255, 255, 0.1)',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .nav-link.active {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 8px 16px;
+        transition: all 0.3s ease;
+      }
+    </style>
+  </head>
+
+  <body class="font-sans bg-dark text-light dark">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-glass/10 backdrop-blur-2xl shadow-2xl border border-white/20 rounded-full px-8 py-4 transition-all duration-300 hidden md:flex"
+    >
+      <div class="flex justify-center items-center">
+        <a
+          href="index.html"
+          class="text-xl font-bold text-primary mr-8 transition hover:text-secondary"
+        >
+          WAN<span class="text-secondary">ADAM</span>
+        </a>
+
+        <div class="flex space-x-6">
+          <a href="index.html#home" class="nav-link group text-light hover:text-primary transition-colors duration-300">
+            <span class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 group-hover:after:w-full">Home</span>
+          </a>
+          <a href="index.html#about" class="nav-link group text-light hover:text-primary transition-colors duration-300">
+            <span class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 group-hover:after:w-full">About</span>
+          </a>
+          <a href="index.html#experience" class="nav-link group text-light hover:text-primary transition-colors duration-300">
+            <span class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 group-hover:after:w-full">Experience</span>
+          </a>
+          <a href="index.html#work" class="nav-link group text-light hover:text-primary transition-colors duration-300">
+            <span class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 group-hover:after:w-full">Work</span>
+          </a>
+          <a href="index.html#contact" class="nav-link group text-light hover:text-primary transition-colors duration-300">
+            <span class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 group-hover:after:w-full">Contact</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Bottom Navigation for Mobile -->
+    <nav class="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 bg-glass/0 backdrop-blur-2xl shadow-2xl border border-white/20 rounded-full px-8 py-4 flex space-x-6 items-center md:hidden">
+      <a href="index.html#home" class="nav-link text-center p-2"><i class="fas fa-home text-xl"></i></a>
+      <a href="index.html#about" class="nav-link text-center p-2"><i class="fas fa-user text-xl"></i></a>
+      <a href="index.html#experience" class="nav-link text-center p-2"><i class="fas fa-pencil-alt text-xl"></i></a>
+      <a href="index.html#work" class="nav-link text-center p-2"><i class="fas fa-code text-xl"></i></a>
+      <a href="index.html#contact" class="nav-link text-center p-2"><i class="fas fa-envelope text-xl"></i></a>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="pt-32 pb-20 bg-glass/10 backdrop-blur-xl text-light border-t border-light/10">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center animate-fade-in">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            IMF Data Integration for GCSG Grosvenor
+          </h1>
+          <p class="text-xl text-white/90 mb-8">
+            Integrating IMF commodity data into a React website with live index charts
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <span class="px-4 py-2 bg-white/20 text-white rounded-full text-sm backdrop-blur-sm">React</span>
+            <span class="px-4 py-2 bg-white/20 text-white rounded-full text-sm backdrop-blur-sm">IMF Data API</span>
+            <span class="px-4 py-2 bg-white/20 text-white rounded-full text-sm backdrop-blur-sm">Chart Integration</span>
+            <span class="px-4 py-2 bg-white/20 text-white rounded-full text-sm backdrop-blur-sm">Data Transformation</span>
+          </div>
+          <div class="mt-8">
+            <a
+              href="https://gcsg-grosvenor.com"
+              target="_blank"
+              class="inline-flex items-center px-6 py-3 bg-secondary text-primary rounded-full font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            >
+              <i class="fas fa-external-link-alt mr-2"></i> Visit Client Website
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Project Showcase -->
+    <section class="py-16 bg-dark">
+      <div class="container mx-auto px-6">
+        <div class="max-w-5xl mx-auto overflow-hidden rounded-xl shadow-xl animate-slide-up">
+          <img src="img/imf-data.png" alt="IMF Data Integration" class="w-full h-auto object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="py-16 bg-dark">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden animate-fade-in">
+            <div class="p-8 md:p-12 border-b border-gray-200">
+              <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="w-4 h-4 bg-secondary rounded-full mr-3"></span>
+                Project Overview
+              </h2>
+              <p class="text-gray-600 leading-relaxed">
+                This work focuses on integrating IMF commodity index data into the client website
+                <strong>gcsg-grosvenor.com</strong>. The implementation displays three core indices:
+                <strong>Coal Index</strong>, <strong>Natural Gas Index</strong>, and <strong>Oil Index</strong>
+                in chart format, with clean data normalization and predictable update behavior.
+              </p>
+            </div>
+
+            <div class="p-8 md:p-12 border-b border-gray-200">
+              <h2
+                class="text-2xl font-bold text-gray-800 mb-6 flex items-center"
+              >
+                <span class="w-4 h-4 bg-secondary rounded-full mr-3"></span>
+                Key Features
+              </h2>
+
+              <div class="space-y-8">
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div class="md:w-1/4">
+                    <div class="bg-secondary/10 p-4 rounded-lg h-full">
+                      <h3 class="font-semibold text-gray-600">IMF API Integration</h3>
+                    </div>
+                  </div>
+                  <div class="md:w-3/4">
+                    <p class="text-gray-600">
+                      Commodity index data is sourced from the IMF API and displayed on the client website
+                      in a clear chart-based interface.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div class="md:w-1/4">
+                    <div class="bg-secondary/10 p-4 rounded-lg h-full">
+                      <h3 class="font-semibold text-gray-600">Combined Chart View</h3>
+                    </div>
+                  </div>
+                  <div class="md:w-3/4">
+                    <p class="text-gray-600">
+                      A combined chart compares Oil, Natural Gas, and Coal indices in one view for
+                      quick performance comparison.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div class="md:w-1/4">
+                    <div class="bg-secondary/10 p-4 rounded-lg h-full">
+                      <h3 class="font-semibold text-gray-600">Separate Chart Views</h3>
+                    </div>
+                  </div>
+                  <div class="md:w-3/4">
+                    <p class="text-gray-600">
+                      Individual charts are available for each index to provide focused trend analysis
+                      without overlapping datasets.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6">
+                  <div class="md:w-1/4">
+                    <div class="bg-secondary/10 p-4 rounded-lg h-full">
+                      <h3 class="font-semibold text-gray-600">Dropdown Time Filters</h3>
+                    </div>
+                  </div>
+                  <div class="md:w-3/4">
+                    <p class="text-gray-600">
+                      Users can filter chart data using dropdown options for Monthly, Quarterly,
+                      and Annual timeframes.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-8 md:p-12">
+              <h2
+                class="text-2xl font-bold text-gray-800 mb-6 flex items-center"
+              >
+                <span class="w-4 h-4 bg-secondary rounded-full mr-3"></span>
+                Technologies Used
+              </h2>
+
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                  <i class="fab fa-react text-4xl text-cyan-500 mb-2"></i>
+                  <h4 class="font-semibold text-gray-700">React</h4>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                  <i class="fas fa-database text-4xl text-blue-600 mb-2"></i>
+                  <h4 class="font-semibold text-gray-700">IMF API</h4>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                  <i class="fab fa-js text-4xl text-yellow-500 mb-2"></i>
+                  <h4 class="font-semibold text-gray-700">JavaScript</h4>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                  <i class="fas fa-chart-line text-4xl text-green-600 mb-2"></i>
+                  <h4 class="font-semibold text-gray-700">Chart Visualization</h4>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                  <i class="fas fa-exchange-alt text-4xl text-indigo-500 mb-2"></i>
+                  <h4 class="font-semibold text-gray-700">REST API</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <a
+              href="index.html#work"
+              class="inline-flex items-center px-6 py-3 bg-secondary text-primary rounded-full font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            >
+              <i class="fas fa-arrow-left mr-2"></i> Back to Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
